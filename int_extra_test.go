@@ -1,5 +1,7 @@
 // Copyright 2009 The Go Authors. All rights reserved.
+
 // Use of this source code is governed by a BSD-style
+
 // license that can be found in the LICENSE file.
 
 // Test extra functionality
@@ -251,5 +253,13 @@ func TestSqrt(t *testing.T) {
 		}
 		a.Mul(a, ten)
 		aSquared.Mul(aSquared, hundred)
+	}
+}
+func TestFibui(t *testing.T) {
+	a := NewInt(1)
+	aa := a.Fibui(6)
+	bb := NewInt(8)
+	if aa.Cmp(bb) != 0 {
+		t.Errorf("fib was incorrect, got: %d, want: %d.", aa, bb)
 	}
 }

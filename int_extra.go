@@ -206,3 +206,13 @@ func (z *Int) Int32() int32 {
 	z.doinit()
 	return int32(C.mpz_get_si(&z.i[0]))
 }
+
+// Fibui returm the nth fibonacci number of n
+//
+// NB This is not part of big.Int
+func (z *Int) Fibui(x int) *Int {
+
+	z.doinit()
+	C.mpz_fib_ui(&z.i[0], C.ulong(x))
+	return z
+}
